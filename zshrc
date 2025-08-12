@@ -43,3 +43,14 @@ source /Users/randellbakker/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Fuzzy cd to a directory inside ~
+cdf() {
+  local dir
+  if command -v fd >/dev/null 2>&1; then
+    dir="$(fd -t d . ~ | fzf)"
+  else
+    dir="$(find ~ -type d 2>/dev/null | fzf)"
+  fi
+  [ -n "$dir" ] && cd "$dir"
+}
