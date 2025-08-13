@@ -1,3 +1,8 @@
+# Powerlevel10k instant prompt (must be first)
+if [[ -r ~/.p10k.zsh ]]; then
+  source ~/.p10k.zsh
+fi
+
 # Always add Homebrew bin FIRST
 export PATH="/opt/homebrew/bin:$PATH"
 
@@ -54,3 +59,6 @@ cdf() {
   fi
   [ -n "$dir" ] && cd "$dir"
 }
+
+export TERM=xterm-256color
+export COLORTERM-truecolor
